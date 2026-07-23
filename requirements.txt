@@ -1,13 +1,6 @@
-json
 streamlit
 pandas
-python-dotenv
 requests
 PyMuPDF
 python-docx
 openpyxl
-os
-time
-fitz
-shutil
-pandas
