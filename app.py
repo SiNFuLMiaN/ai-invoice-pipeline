@@ -11,7 +11,15 @@ def reset_memory():
 
 
 st.set_page_config(page_title="AI Invoice Pipeline", page_icon="🤑")
-
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            header {visibility: hidden;}
+            footer {visibility: hidden;}
+            .stAppDeployButton {display:none;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 if "is_processed" not in st.session_state:
     st.session_state.is_processed = False
 
