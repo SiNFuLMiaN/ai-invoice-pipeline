@@ -87,8 +87,14 @@ if uploaded_files:
                 )
                 shutil.rmtree(temp_folder)
                 st.stop()
-        # shutil.rmtree(temp_folder)
-        st.session_state.is_processed = True
+        shutil.rmtree(temp_folder)
+        if os.path.exists(Json_File_path) and os.path.exists(Excel_File_path):
+            # YES! The files exist. Flip the memory switch to show the UI.
+            st.session_state.is_processed = True
+        else:
+            # NO! The AI failed to extract data. Show an error and STOP.
+            st.error("⚠️ The AI failed to extract data. The files were not generated. Please check your document and try again.")
+        # ----------------------------------------
 
         # is_processed = True
     if st.session_state.is_processed:
